@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def config_plot():
+def config_plots():
     plt.style.use('classic')
     VFont=16
     plt.rcParams['figure.facecolor'] = '1.0'
