@@ -11,7 +11,7 @@ def config_plots():
     #plt.rcParams['mathtext.fontset'] = 'dejavusans'
     #plt.rcParams['font.family'] = 'DejaVu Sans'
     #plt.rcParams['font.sans-serif'] = 'dejavusans'
-    plt.rcParams['axes.titlesize'] = VFont*1.1
+    plt.rcParams['axes.titlesize'] = VFont
     plt.rcParams['axes.labelsize'] = VFont
     plt.rcParams['xtick.labelsize'] = VFont*0.9
     plt.rcParams['ytick.labelsize'] = VFont*0.9
