@@ -1,44 +1,51 @@
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as mpl
 import numpy as np
+from cycler import cycler
 
 def config_plots():
-    plt.style.use('classic')
+    mpl.style.use('classic')
     VFont=16
-    plt.rcParams['figure.facecolor'] = '1.0'
-    plt.rcParams['mathtext.fontset'] = 'stix'
-    plt.rcParams['font.family'] = 'STIXGeneral'
-    plt.rcParams['font.sans-serif'] = 'stix'
-    #plt.rcParams['mathtext.fontset'] = 'dejavusans'
-    #plt.rcParams['font.family'] = 'DejaVu Sans'
-    #plt.rcParams['font.sans-serif'] = 'dejavusans'
-    plt.rcParams['axes.titlesize'] = VFont
-    plt.rcParams['axes.labelsize'] = VFont
-    plt.rcParams['xtick.labelsize'] = VFont*0.9
-    plt.rcParams['ytick.labelsize'] = VFont*0.9
-    plt.rcParams['legend.fontsize'] = VFont*0.9
-    plt.rcParams['axes.formatter.useoffset'] = False
-    plt.rcParams['savefig.directory'] = ""
-    plt.rcParams['savefig.format'] = 'pdf'
-    plt.rcParams["figure.dpi"] = 280
-    plt.rcParams["figure.figsize"] = ( 6, 4.5 )
-    plt.rcParams["lines.markersize"] = 5
+    mpl.rcParams['figure.facecolor'] = '1.0'
+    mpl.rcParams['mathtext.fontset'] = 'stix'
+    mpl.rcParams['font.family'] = 'STIXGeneral'
+    mpl.rcParams['font.sans-serif'] = 'stix'
+    #mpl.rcParams['mathtext.fontset'] = 'dejavusans'
+    #mpl.rcParams['font.family'] = 'DejaVu Sans'
+    #mpl.rcParams['font.sans-serif'] = 'dejavusans'
+    mpl.rcParams['axes.titlesize'] = VFont
+    mpl.rcParams['axes.labelsize'] = VFont
+    mpl.rcParams['xtick.labelsize'] = VFont*0.9
+    mpl.rcParams['ytick.labelsize'] = VFont*0.9
+    mpl.rcParams['legend.fontsize'] = VFont*0.9
+    mpl.rcParams['axes.formatter.useoffset'] = False
+    mpl.rcParams['savefig.directory'] = ""
+    mpl.rcParams['savefig.format'] = 'pdf'
+    mpl.rcParams["figure.dpi"] = 280
+    mpl.rcParams["figure.figsize"] = ( 6, 4.5 )
+    mpl.rcParams["lines.markersize"] = 5
     
-    plt.rcParams['figure.subplot.left'  ] = 0.14
-    plt.rcParams['figure.subplot.right' ] = 0.96
-    plt.rcParams['figure.subplot.bottom'] = 0.14
-    plt.rcParams['figure.subplot.top'   ] = 0.95
-    plt.rcParams['figure.subplot.wspace'] = 0.20
-    plt.rcParams['figure.subplot.hspace'] = 0.20
+    mpl.rcParams["axes.prop_cycle"] = cycler('color', ['#1f77b4', '#ff7f0e', '#2ca02c', \
+                                                   '#d62728', '#9467bd', '#8c564b', \
+                                                   '#e377c2', '#7f7f7f', '#bcbd22', \
+                                                   '#17becf'] )
+    mpl.rcParams['lines.linewidth'] = 1.5
+
+    mpl.rcParams['figure.subplot.left'  ] = 0.14
+    mpl.rcParams['figure.subplot.right' ] = 0.96
+    mpl.rcParams['figure.subplot.bottom'] = 0.14
+    mpl.rcParams['figure.subplot.top'   ] = 0.95
+    mpl.rcParams['figure.subplot.wspace'] = 0.20
+    mpl.rcParams['figure.subplot.hspace'] = 0.20
 
 def inline_label( lbl, x, y, i, fontsize = 8, color = 'k' ):
     
   # get screen coordinates (physical display)
-  screen_dx, screen_dy = plt.gca().transData.transform( (x[i+1], y[i+1]) ) \
-                       - plt.gca().transData.transform( (x[i-1], y[i-1]) )
+  screen_dx, screen_dy = mpl.gca().transData.transform( (x[i+1], y[i+1]) ) \
+                       - mpl.gca().transData.transform( (x[i-1], y[i-1]) )
     
   angle = ( np.degrees( np.arctan2( screen_dy, screen_dx ) ) + 90 ) % 180 - 90
   
-  plt.gca().text( x[i], y[i], lbl,
+  mpl.gca().text( x[i], y[i], lbl,
                   rotation=angle,
                   fontsize=fontsize, color=color, 
                   horizontalalignment='center',
