@@ -24,10 +24,19 @@ def config_plots():
     mpl.rcParams["figure.figsize"] = ( 6, 4.5 )
     mpl.rcParams["lines.markersize"] = 5
     
-    mpl.rcParams["axes.prop_cycle"] = cycler('color', ['#1f77b4', '#ff7f0e', '#2ca02c', \
-                                                   '#d62728', '#9467bd', '#8c564b', \
-                                                   '#e377c2', '#7f7f7f', '#bcbd22', \
-                                                   '#17becf'] )
+    dc = ( cycler( linestyle = [ \
+              (0,(6,0)), (0,(6,2)), (0,(6,1.5,1.5,1.5)), \
+              (0,(8,1.5,1.5,1.5,1.5,1.5)), (0,(11,3)), (0,(2,2)), \
+              (0,(11,3,3,3,)), (0,(11,2,5,2)), (0,(17,2)), \
+              (0,(17,2,2,2)) ] ) + \
+           cycler('color', [ \
+              '#1f77b4', '#ff7f0e', '#2ca02c', \
+              '#d62728', '#9467bd', '#8c564b', \
+              '#e377c2', '#7f7f7f', '#bcbd22', \
+              '#17becf'] ) \
+          )    
+    mpl.rcParams["axes.prop_cycle"] = dc
+    
     mpl.rcParams['lines.linewidth'] = 1.5
 
     mpl.rcParams['figure.subplot.left'  ] = 0.14
