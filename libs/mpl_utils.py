@@ -2,21 +2,26 @@ import matplotlib.pyplot as mpl
 import numpy as np
 from cycler import cycler
 
-def config_plots():
-    mpl.style.use('classic')
-    VFont=16
+def config_plots(  font_sans_serif=False ):
     mpl.rcParams['figure.facecolor'] = '1.0'
-    mpl.rcParams['mathtext.fontset'] = 'stix'
-    mpl.rcParams['font.family'] = 'STIXGeneral'
-    mpl.rcParams['font.sans-serif'] = 'stix'
-    #mpl.rcParams['mathtext.fontset'] = 'dejavusans'
-    #mpl.rcParams['font.family'] = 'DejaVu Sans'
-    #mpl.rcParams['font.sans-serif'] = 'dejavusans'
-    mpl.rcParams['axes.titlesize'] = VFont
-    mpl.rcParams['axes.labelsize'] = VFont
-    mpl.rcParams['xtick.labelsize'] = VFont*0.9
-    mpl.rcParams['ytick.labelsize'] = VFont*0.9
-    mpl.rcParams['legend.fontsize'] = VFont*0.9
+    
+    if font_sans_serif:
+      mpl.rcParams['mathtext.fontset'] = 'dejavusans'
+      mpl.rcParams['font.family'] = 'DejaVu Sans'
+      mpl.rcParams['font.sans-serif'] = 'dejavusans'
+    else:
+      mpl.style.use('classic')
+      mpl.rcParams['font.family'] = 'STIXGeneral'
+      mpl.rcParams['font.sans-serif'] = 'stix'
+      mpl.rcParams['mathtext.fontset'] = 'stix'
+
+      VFont=16
+      mpl.rcParams['axes.titlesize'] = VFont
+      mpl.rcParams['axes.labelsize'] = VFont
+      mpl.rcParams['xtick.labelsize'] = VFont*0.9
+      mpl.rcParams['ytick.labelsize'] = VFont*0.9
+      mpl.rcParams['legend.fontsize'] = VFont*0.9    
+
     mpl.rcParams['axes.formatter.useoffset'] = False
     mpl.rcParams['savefig.directory'] = ""
     mpl.rcParams['savefig.format'] = 'pdf'
