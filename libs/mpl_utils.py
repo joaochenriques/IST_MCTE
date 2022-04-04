@@ -3,7 +3,6 @@ import numpy as np
 from cycler import cycler
 
 def config_plots(  font_sans_serif=False ):
-    mpl.rcParams['figure.facecolor'] = '1.0'
     
     if font_sans_serif:
       mpl.rcParams['mathtext.fontset'] = 'dejavusans'
@@ -11,6 +10,7 @@ def config_plots(  font_sans_serif=False ):
       mpl.rcParams['font.sans-serif'] = 'dejavusans'
     else:
       mpl.style.use('classic')
+      mpl.rcParams['figure.facecolor'] = '1.0'
       mpl.rcParams['font.family'] = 'STIXGeneral'
       mpl.rcParams['font.sans-serif'] = 'stix'
       mpl.rcParams['mathtext.fontset'] = 'stix'
