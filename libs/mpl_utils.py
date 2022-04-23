@@ -51,6 +51,19 @@ def config_plots(  font_sans_serif=False ):
     mpl.rcParams['figure.subplot.wspace'] = 0.20
     mpl.rcParams['figure.subplot.hspace'] = 0.20
 
+def useTeX():
+    ! sudo apt-get install texlive-latex-recommended #1
+    ! sudo apt-get install dvipng texlive-fonts-recommended #2
+    ! wget http://mirrors.ctan.org/macros/latex/contrib/type1cm.zip #3
+    ! unzip type1cm.zip -d /tmp/type1cm #4
+    ! cd /tmp/type1cm/type1cm/ && sudo latex type1cm.ins  #5
+    ! sudo mkdir /usr/share/texmf/tex/latex/type1cm #6
+    ! sudo cp /tmp/type1cm/type1cm/type1cm.sty /usr/share/texmf/tex/latex/type1cm #7
+    ! sudo texhash #8
+
+    mpl.rcParams['text.usetex'] = True
+    mpl.rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
+
 def inline_label( lbl, x, y, i, fontsize = 8, color = 'k' ):
     
   # get screen coordinates (physical display)
