@@ -1,6 +1,7 @@
 import matplotlib.pyplot as mpl
 import numpy as np
 from cycler import cycler
+import os
 
 def config_plots(  font_sans_serif=False ):
     
@@ -52,14 +53,14 @@ def config_plots(  font_sans_serif=False ):
     mpl.rcParams['figure.subplot.hspace'] = 0.20
 
 def useTeX():
-    ! sudo apt-get install texlive-latex-recommended #1
-    ! sudo apt-get install dvipng texlive-fonts-recommended #2
-    ! wget http://mirrors.ctan.org/macros/latex/contrib/type1cm.zip #3
-    ! unzip type1cm.zip -d /tmp/type1cm #4
-    ! cd /tmp/type1cm/type1cm/ && sudo latex type1cm.ins  #5
-    ! sudo mkdir /usr/share/texmf/tex/latex/type1cm #6
-    ! sudo cp /tmp/type1cm/type1cm/type1cm.sty /usr/share/texmf/tex/latex/type1cm #7
-    ! sudo texhash #8
+    os.system( 'sudo apt-get install texlive-latex-recommended' )
+    os.system( 'sudo apt-get install dvipng texlive-fonts-recommended' )
+    os.system( 'wget http://mirrors.ctan.org/macros/latex/contrib/type1cm.zip' )
+    os.system( 'unzip type1cm.zip -d /tmp/type1cm' )
+    os.system( 'cd /tmp/type1cm/type1cm/ && sudo latex type1cm.ins' )
+    os.system( 'sudo mkdir /usr/share/texmf/tex/latex/type1cm' )
+    os.system( 'sudo cp /tmp/type1cm/type1cm/type1cm.sty /usr/share/texmf/tex/latex/type1cm' )
+    os.system( 'sudo texhash' )
 
     mpl.rcParams['text.usetex'] = True
     mpl.rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
