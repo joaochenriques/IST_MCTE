@@ -64,7 +64,7 @@ def useTeX():
 
     for cmd in cmds:
         print( cmd )
-        os.exec( cmd )
+        os.system( cmd )
         
     mpl.rcParams['text.usetex'] = True
     mpl.rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
